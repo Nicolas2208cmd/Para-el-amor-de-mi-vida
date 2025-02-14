@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te amo con todo mi corazón millooones mi amor 💖</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Constantia&display=swap');
+        
+        body {
+            text-align: center;
+            background-color: #ffe6f2;
+            font-family: 'Constantia', serif;
+        }
+        .carta-container {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .mensaje {
+            display: none;
+            width: 350px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        #texto {
+            white-space: pre-wrap;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        .nombre {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #d63384;
+            font-size: 20px;
+        }
+        iframe {
+            margin-top: 10px;
+            border-radius: 12px;
+        }
+        .flores {
+            font-size: 30px;
+            margin-top: 10px;
+        }
+        .imagenes-snoopy img {
+            width: 120px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        h1 {
+            font-size: 28px;
+            color: #c2185b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Te amo con todo mi corazón millooones mi amor 💖</h1>
+    <div class="flores">🌸🌺🌼🌷💐🌹</div>
+    <div class="imagenes-snoopy">
+        <img src="https://i.pinimg.com/564x/1a/5e/a7/1a5ea7f98cf7d1d6b1d36245d4f2a05e.jpg" alt="Snoopy enamorado">
+        <img src="https://i.pinimg.com/564x/9f/b8/9b/9fb89b20c80362f5c93e6f93e9a0c2a6.jpg" alt="Snoopy con corazones">
+    </div>
+    <div class="carta-container" onclick="animarCarta()">
+        <img id="carta" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Envelope_font_awesome.svg" alt="Carta" width="150">
+    </div>
+    <div class="mensaje" id="mensaje">
+        <div class="imagenes-snoopy">
+            <img src="https://i.pinimg.com/564x/c9/b1/57/c9b157c2063eb81382011c46cd3908eb.jpg" alt="Snoopy disfrazado de dinosaurio">
+            <img src="https://i.pinimg.com/564x/4f/79/1c/4f791caa2e0417ac92fbed1faad2681d.jpg" alt="Snoopy disfrazado de policía">
+        </div>
+        <p id="texto"></p>
+        <iframe id="spotify" style="display:none" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        <p class="nombre" id="nombre"></p>
+        <div class="flores">💐🌺🌸🌷🌻</div>
+    </div>
+    
+    <script>
+        function animarCarta() {
+            let carta = document.getElementById("carta");
+            carta.src = "https://upload.wikimedia.org/wikipedia/commons/e/ec/Opened_Envelope.png";
+            setTimeout(mostrarMensaje, 1000);
+        }
+        
+        function mostrarMensaje() {
+            document.getElementById("mensaje").style.display = "block";
+            let texto = "Cuando te conocí...\n\nSentí que el universo se alineaba para ponerte en mi vida. Desde entonces, cada día a tu lado es un regalo, una historia de amor que nunca deja de sorprenderme. Eres mi felicidad, mi paz y mi todo. 💖";
+            let i = 0;
+            let intervalo = setInterval(() => {
+                if (i < texto.length) {
+                    document.getElementById("texto").textContent += texto[i];
+                    i++;
+                } else {
+                    clearInterval(intervalo);
+                    document.getElementById("spotify").style.display = "block";
+                    document.getElementById("spotify").src = "https://open.spotify.com/embed/track/1YZv0A2RSk4B1m5M4nDsm5";
+                    document.getElementById("nombre").textContent = "Para: Leti la dueña de mi ❤";
+                }
+            }, 50);
+        }
+    </script>
+</body>
+</html>
