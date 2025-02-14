@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti mi Leti❤️</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffe6f2;
+            font-family: Arial, sans-serif;
+        }
+        .carta-container {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .mensaje {
+            display: none;
+            width: 300px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #texto {
+            white-space: pre-wrap;
+            text-align: left;
+        }
+        .nombre {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+    <h1>Haz clic en la carta 💌</h1>
+    <div class="carta-container" onclick="mostrarMensaje()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Envelope_font_awesome.svg" alt="Carta" width="150">
+    </div>
+    <div class="mensaje" id="mensaje">
+        <p id="texto"></p>
+        <iframe id="spotify" style="display:none" src="" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        <p class="nombre" id="nombre"></p>
+    </div>
+    
+    <script>
+        function mostrarMensaje() {
+            document.getElementById("mensaje").style.display = "block";
+            let texto = "Hola mi amor,\n\nEsta carta es solo para recordarte cuánto te amo. 💖";
+            let i = 0;
+            let intervalo = setInterval(() => {
+                if (i < texto.length) {
+                    document.getElementById("texto").textContent += texto[i];
+                    i++;
+                } else {
+                    clearInterval(intervalo);
+                    document.getElementById("spotify").style.display = "block";
+                    document.getElementById("spotify").src = "https://open.spotify.com/embed/track/TU_CANCION_ID";
+                    document.getElementById("nombre").textContent = "Para: [Tu Novia] ❤️";
+                }
+            }, 50);
+        }
+    </script>
+</body>
+</html>
